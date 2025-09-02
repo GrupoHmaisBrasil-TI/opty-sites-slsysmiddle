@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Configuração de Agendamento</title>
+
+      <link rel="shortcut icon" type="imagex/png" href="./assets/salesforce1_60.png">
+      <link rel="stylesheet" href="./styles/salesforce-lightning-design-system.min.css" />
+  </head>
+  <body>
+      <article class="slds-card">
+          <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                  <div class="slds-media__figure">
+                      <span class="slds-icon_container slds-icon-standard-procedure" >
+                          <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                              <use xlink:href="./assets/symbols.svg#procedure"></use>
+                          </svg>
+                          <span class="slds-assistive-text" title="">Configuração de Agendamento</span>
+                      </span>
+                  </div>
+                  <div class="slds-media__body">
+                      <h2 class="slds-card__header-title">
+                        <span>Configuração de Agendamento</span>
+                      </h2>
+                  </div>
+              </header>
+          </div>
+          <div class="slds-card__body slds-card__body_inner">
+              <div class="slds-form-element" id="statusAppointment">
+                  <label class="slds-form-element__label" for="statusAppointment">Status Consulta</label>
+                  <div class="slds-form-element__control">
+                      <select id="select-statusAppointment" class="slds-select" required>
+                          <option value disabled selected>Escolha uma das opções abaixo </option>
+                          <option value="confirmar">✅ Confirmar Consulta</option>
+                          <option value="cancelar">❌ Cancelar Consulta</option>
+                      </select>
+                      <small style="color: red; display: none;" id="select-statusAppointment-error">Deve escolher uma das opções *Status Consulta*</small>
+                  </div>
+              </div>
+          </div>    
+          <div class="slds-card__body slds-card__body_inner">
+              <div class="slds-form-element" id="examIdField">
+                  <label class="slds-form-element__label" for="examIdField">Campo de ID do Exame</label>
+                  <div class="slds-form-element__control">
+                      <select id="select-examIdField" class="slds-select" required>
+                          <option value disabled selected>Escolha um campo para ID do Exame</option>
+                          
+                      </select>
+                      <small style="color: red; display: none;" id="select-examIdField-error">Deve escolher uma das opções *Campo de ID do Exame*</small>
+                  </div>
+              </div>
+          </div>
+      </article>
+      <script src="./js/postmonger.js"></script>
+      <script src="./js/require.js"></script>
+      <script src="./js/customActivity.js"></script>
+      </script>
+  </body>
+</html>

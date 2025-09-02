@@ -1,19 +1,16 @@
-# Imagem base com Python
 FROM python:3.11-slim
 
-# Define diretório de trabalho dentro do container
-WORKDIR /app
+ENV PYTHONUNBUFFERED 1
+WORKDIR /code
 
-# Copia os arquivos de dependência e instala
 COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 8000
 
-# Copia o restante da aplicação
-COPY src/ ./src
+ENTRYPOINT [ "/usr/local/bin/uvicorn" ]
+CMD [ "--proxy-headers", "--host", "0.0.0.0", "--port", "8000" , "server:app" ]
 
-# Define o diretório de trabalho principal
-WORKDIR /app/src
+COPY ./public /public
 
-# Comando para rodar a aplicação
-CMD ["python", "main.py"]
+COPY ./src .

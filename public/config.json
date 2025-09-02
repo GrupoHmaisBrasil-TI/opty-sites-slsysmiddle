@@ -1,0 +1,63 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "./assets/logo-opty.png",
+    "category": "message",
+    "isConfigured": true
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Configuração Agendamento",
+      "step1Label": "Configure Atividade"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "url": "http://10.102.0.222:8002/api/execute",
+      "verb": "POST",
+      "format": "json",
+      "inArguments": [],
+      "timeout": 9000
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "exemple",
+    "save": {
+      "url": "http://10.102.0.222:8002/api/save",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "publish": {
+      "url": "http://10.102.0.222:8002/publish",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "stop": {
+      "url": "http://10.102.0.222:8002/api/stop",
+      "verb": "POST",
+      "useJwt": true
+    },
+    "validate": {
+      "url": "http://10.102.0.222:8002/api/validate",
+      "verb": "POST",
+      "useJwt": true
+    }
+  },
+  "wizardSteps": [{ "label": "Configure Atividade", "key": "step1" }],
+  "userInterfaces": {
+    "configModal": {
+      "height": 400,
+      "width": 1000,
+      "fullscreen": false
+    }
+  },
+  "schema": {
+    "arguments": {
+      "execute": {
+        "inArguments": [],
+        "outArguments": []
+      }
+    }
+  }
+}

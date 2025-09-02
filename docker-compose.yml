@@ -1,0 +1,22 @@
+services:
+  # Nome do serviço (diferente do primeiro projeto para clareza)
+  sfsysmiddle-api:
+    # Nome do contêiner (DEVE ser único no servidor)
+    container_name: sfsysmiddle
+
+    # Constrói a imagem a partir do Dockerfile no diretório atual ('.')
+    build:
+      context: .
+
+    # Mapeamento de portas (ESSA É A MUDANÇA MAIS IMPORTANTE)
+    # Mapeia a porta 8002 do seu servidor para a porta 5000 do contêiner.
+    # Usar uma porta diferente (8002) evita conflito com o primeiro projeto (8001).
+    ports:
+      - "8002:8000"
+
+    # Política de reinicialização para garantir que o contêiner sempre suba
+    restart: on-failure:5
+
+    # Mapeia a pasta 'src' do seu servidor para a pasta '/app/src' no contêiner.
+    volumes:
+      - ./src:/app/src
